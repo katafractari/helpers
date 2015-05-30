@@ -1,5 +1,9 @@
 #!/bin/sh
 
+if [ -f /etc/arch-releasea ]; then
+    sudo pacman -S tmux vim-runtime gvim-python3 python-powerline-git
+fi
+
 cd
 
 # Oh my zsh
