@@ -8,7 +8,7 @@ rm .bash* 2> /dev/null
 
 # Install required packages
 if [[ -f /etc/arch-release && -f /usr/bin/yaourt ]]; then
-    yaourt -S tmux vim-runtime gvim-python3 python-powerline-git x11-ssh-askpass
+    yaourt -S zsh tmux vim-runtime powerline powerline-fonts ruby
 fi
 
 cd
@@ -26,8 +26,10 @@ rm .vimrc.local 2> /dev/null
 
 # MyRepos and Homesick castles
 mkdir -p .myrepos
-curl -L https://raw.github.com/joeyh/myrepos/master/mr > .myrepos/mr
+git clone https://git.joeyh.name/git/myrepos.git/ /tmp/myrepos
+cp /tmp/myrepos/mr .myrepos/mr
 chmod +x .myrepos/mr
+
 curl -L https://raw.githubusercontent.com/katafractari/vcs/master/home/.mrconfig > .mrconfig
 $MR_BIN checkout
 rm .mrconfig
